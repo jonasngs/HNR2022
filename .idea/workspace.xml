@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="22e3c1a8-3f28-4ee4-b279-bf55127adaad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.flaskenv" beforeDir="false" afterPath="$PROJECT_DIR$/.flaskenv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/glints.py" beforeDir="false" afterPath="$PROJECT_DIR$/glints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/internsg.py" beforeDir="false" afterPath="$PROJECT_DIR$/internsg.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/linkedin.py" beforeDir="false" afterPath="$PROJECT_DIR$/linkedin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

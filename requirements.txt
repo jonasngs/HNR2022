@@ -28,6 +28,7 @@ Naked==0.1.31
 packaging==20.9
 paramiko==2.7.2
 php==1.2.1
+MyApplication==0.1.0
 pipenv==2021.11.23
 platformdirs==2.4.1
 psutil==5.8.0
