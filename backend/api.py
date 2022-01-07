@@ -1,17 +1,23 @@
 import time
 from flask import Flask, request, json
+from flask.helpers import send_from_directory
 from internsg import main as m1
 from linkedin import search as m2
 from glints import search as m3
 from flask_cors import CORS, cross_origin
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="frontend/build", static_url_path="")
 cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+
+#app.config['CORS_HEADERS'] = 'Content-Type'
+
 @app.route('/')
-def test():
-    return {'name': "server is up and running"}
+@cross_origin()
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
+# def test():
+#     return {'name': "server is up and running"}
 
 @app.route('/time')
 def get_current_time():
