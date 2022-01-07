@@ -1,7 +1,8 @@
 import time
-from flask import Flask, request
+from flask import Flask, request, json
 from internsg import main as m1
 from linkedin import search as m2
+from glints import search as m3
 
 app = Flask(__name__)
 
@@ -21,4 +22,18 @@ def get_data_internsg(keyword):
 def get_data_linkedin(id):
     return m2(id)
 
-print("hi")
+@app.route('/glints')
+def get_data_glints():
+    return m3()
+
+@app.route('/search/<keyword>')
+def search(keyword):
+    result = []
+    # call your method and append it to result
+    linkedin = m2(keyword)
+    glints = m3(keyword)
+    result.append(json.loads(linkedin))
+    result.append(json.loads(glints))
+    return json.dumps(result)
+
+
