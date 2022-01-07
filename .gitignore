@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+backend/venv/Lib/site-packages/pipenv/patched/notpip/_internal/operations/build/
 develop-eggs/
 dist/
 downloads/
