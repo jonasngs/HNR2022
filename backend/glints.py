@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as BS
 import json
+import re
 
 
 def search(keyword=""):
@@ -19,6 +20,7 @@ def search(keyword=""):
         time = posting.findAll("div", {"class": "CompactOpportunityCardsc__OpportunityInfo-sc-1xtox99-13 hiAtMr"})[
             -1].text.strip().replace("\u2013", "-")
         title = posting.find("h3", {"class": "CompactOpportunityCardsc__JobTitle-sc-1xtox99-7 kJpKeD"}).text.strip()
+        # title = posting.find("h3", {"class": re.compile(r'CompactOpportunityCardsc__JobTitle')}).text.strip()
         company = posting.find("div", {"class": "CompactOpportunityCardsc__Ellipsis-sc-1xtox99-11 hOPlUO"}).text.strip()
         domain = "http://glints.com"
         link = domain + posting.a['href'].strip()
