@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup as BS
 import json
 
 def main():
-    url = "https://glints.com/sg/opportunities/jobs/explore?country=SG&locationName=Singapore"
+    url = "https://www.internsg.com/"
 
     request = requests.get(url)
     page = BS(request.text, "html.parser")
