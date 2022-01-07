@@ -1,5 +1,5 @@
 import time
-from flask import Flask, request
+from flask import Flask, request, json
 from intersg import main as m1
 from linkedin import search as m2
 
@@ -20,5 +20,12 @@ def get_data_internsg():
 @app.route('/linkedin/<id>')
 def get_data_linkedin(id):
     return m2(id)
+
+@app.route('/search/<keyword>')
+def search(keyword):
+    result = []
+    linkedin = m2(keyword)
+    result.append(json.loads(linkedin))
+    return json.dumps(result)
 
 print("hi")
