@@ -44,6 +44,4 @@ def search(keyword):
 # deploy to heroku
 # git subtree push --prefix backend heroku master
 
-if __name__ == '__main__':
-    app.run()
 
