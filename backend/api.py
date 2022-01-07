@@ -32,8 +32,11 @@ def search(keyword):
     # call your method and append it to result
     linkedin = m2(keyword)
     glints = m3(keyword)
+    internsg = m1(keyword)
     result.append(json.loads(linkedin))
     result.append(json.loads(glints))
+    result.append(json.loads(internsg))
+
     return json.dumps(result)
 
 
