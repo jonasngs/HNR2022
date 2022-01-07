@@ -43,7 +43,7 @@ const App = () => {
   const getJobData = async (search) => {
     try {
 
-      const requestUrl = `http://127.0.0.1:5000/linkedin/${search}`;
+      const requestUrl = `https://tranquil-island-54577.herokuapp.com/linkedin/${search}`;
       const data = await axios.get(requestUrl);
       console.log(requestUrl)
       console.log(data.data);
