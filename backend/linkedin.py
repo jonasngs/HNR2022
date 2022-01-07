@@ -20,14 +20,15 @@ def search(keyword):
 
         for job in jobs:
             try:
-                date = job
+                date = job.time['datetime']
+                # print(date)
                 time = job.time.text.strip()
                 # print(time)
                 title = job.a.text.strip()
                 # print(title)
                 company = job.find('a', class_='hidden-nested-link').text.strip()
                 link = job.a['href'].strip()
-                add = {"company" : company, "title" : title, "link" : link, "time" : time}
+                add = {"company" : company, "title" : title, "link" : link, "time" : date}
                 result.append(add)
             except Exception as e:
                 print('Error')
@@ -37,5 +38,5 @@ def search(keyword):
     # print(result)
     return json.dumps(result)
 
-# search('software engineer intern')
+search('software engineer intern')
 
