@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://tranquil-island-54577.herokuapp.com/"
+  "proxy": "https://localhost:5000"
 }

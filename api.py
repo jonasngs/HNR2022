@@ -20,29 +20,34 @@ def serve():
 #     return {'name': "server is up and running"}
 
 @app.route('/time')
+@cross_origin()
 def get_current_time():
     return {'time': time.time()}
 
 @app.route('/internsg/<keyword>')
+@cross_origin()
 def get_data_internsg(keyword):
     return m1(keyword)
 
 @app.route('/linkedin/<id>')
+@cross_origin()
 def get_data_linkedin(id):
     return m2(id)
 
 @app.route('/glints')
+@cross_origin()
 def get_data_glints():
     return m3()
 
 @app.route('/search/<keyword>')
+@cross_origin()
 def search(keyword):
     result = []
     # call your method and append it to result
-    linkedin = m2(keyword)
+    #linkedin = m2(keyword)
     glints = m3(keyword)
     internsg = m1(keyword)
-    result.append(json.loads(linkedin))
+    #result.append(json.loads(linkedin))
     result.append(json.loads(glints))
     result.append(json.loads(internsg))
 

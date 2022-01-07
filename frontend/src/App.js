@@ -42,10 +42,12 @@ const App = () => {
 
   const getJobData = async (search) => {
     try {
-
-      const requestUrl = `https://tranquil-island-54577.herokuapp.com/search/${search}`;
+      
+      const requestUrl = `"https://tranquil-island-54577.herokuapp.com/search/${search}`;
+      console.log("test");
+      console.log(requestUrl);
       const data = await axios.get(requestUrl);
-      console.log(requestUrl)
+      console.log(requestUrl);
       console.log(data.data);
       setJob(data.data);
     } catch (e) {
