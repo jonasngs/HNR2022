@@ -41,5 +41,9 @@ def search(keyword):
     result.append(json.loads(internsg))
 
     return json.dumps(result)
+# deploy to heroku
+# git subtree push --prefix backend heroku master
 
+if __name__ == '__main__':
+    app.run()
 
