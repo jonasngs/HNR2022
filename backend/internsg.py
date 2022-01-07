@@ -40,5 +40,5 @@ def main(keyword):
         temp[name]["title"] = title.strip()
         temp[name]["date"] = date.strip()
         result.append(temp)
-    return result
+    return json.dumps(result)
 print(main(""))
