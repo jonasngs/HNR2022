@@ -13,8 +13,7 @@ def search(keyword):
         page = '&location=Singapore&start=' + str(i * 25)
 
         # for sg only
-        source = requests.get('https://www.linkedin.com/jobs/search/?geoId=102454443&keywords=' + kw + page).text
-        print(source)
+        source = requests.get('https://sg.linkedin.com/jobs/search/?geoId=102454443&keywords=' + kw + page).text
         # source = requests.get('https://www.linkedin.com/jobs/search/?keywords=' + kw + '&location=Singapore' + page).text
         # print('https://www.linkedin.com/jobs/search/?geoId=102454443&keywords=' + kw + page)
         soup = BeautifulSoup(source, 'lxml')
