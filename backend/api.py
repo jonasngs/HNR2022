@@ -1,6 +1,7 @@
 import time
-from flask import Flask
+from flask import Flask, request
 from intersg import main as m1
+from linkedin import search as m2
 
 app = Flask(__name__)
 
@@ -15,5 +16,9 @@ def get_current_time():
 @app.route('/internsg')
 def get_data_internsg():
     return m1()
+
+@app.route('/linkedin/<id>')
+def get_data_linkedin(id):
+    return m2(id)
 
 print("hi")

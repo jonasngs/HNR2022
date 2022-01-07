@@ -24,6 +24,7 @@ import csv
 #
 #     print(company)
 #     print(link)
+from flask import json
 
 
 def search(keyword):
@@ -44,11 +45,11 @@ def search(keyword):
             title = 'None'
             company = 'None'
             link = 'None'
-        add = {title, link}
+        add = {"title" : title, "link" : link}
         result[company] = add
     for key, value in result.items():
         print(key, ' : ', value)
-    return result
+    return json.dumps(result)
 
-search('software engineer intern')
+# search('software engineer intern')
 
