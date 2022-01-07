@@ -29,6 +29,7 @@ def get_data_glints():
 @app.route('/search/<keyword>')
 def search(keyword):
     result = []
+    # call your method and append it to result
     linkedin = m2(keyword)
     result.append(json.loads(linkedin))
     return json.dumps(result)
