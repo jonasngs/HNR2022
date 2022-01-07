@@ -40,11 +40,10 @@ def main(keyword):
             name = name[:index]
             date = t3[0].text
             temp = {}
-            temp["company"] = {}
-            temp["company"]["name"] = name.strip()
-            temp["company"]["title"] = title.strip()
-            temp["company"]["time"] = date.strip()
-            temp["company"]["link"] = link.strip()
+            temp["company"] = name.strip()
+            temp["title"] = title.strip()
+            temp["time"] = date.strip()
+            temp["link"] = link.strip()
             current.append(temp)
         if not toBreak:
             store2 = page.findAll("div", {"class":"ast-row list-odd"})
@@ -60,11 +59,10 @@ def main(keyword):
                 date = t3[0].text
                 link = t1[1].a['href']
                 temp = {}
-                temp["company"] = {}
-                temp["company"]['name'] = name.strip()
-                temp["company"]["title"] = title.strip()
-                temp["company"]["time"] = date.strip()
-                temp["company"]["link"] = link.strip()
+                temp["company"] = name.strip()
+                temp["title"] = title.strip()
+                temp["time"] = date.strip()
+                temp["link"] = link.strip()
                 current.append(temp)
             result += current
         else:
