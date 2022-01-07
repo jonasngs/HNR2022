@@ -1,24 +1,99 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  const [currentTime, setCurrentTime] = useState(0);
-  
+import "./App.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 700,
+  },
+});
+
+const App = () => {
+  const classes = useStyles();
+  const [job, setJob] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const getJobData = async (search) => {
+    try {
+
+      const requestUrl = `http://127.0.0.1:5000/linkedin/${search}`;
+      const data = await axios.get(requestUrl);
+      console.log(requestUrl)
+      console.log(data.data);
+      setJob(data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }, []);
-  
+    console.log("hello")
+    getJobData(search);
+  }, [search, setSearch]);
+
   return (
     <div className="App">
-      <div className="containter-fluid">
-      <h1>Welcome</h1>
-      <p>The current time is {currentTime} </p>
-      </div>
+      <h1>Find your ideal jobs here !</h1>
+      <input placeholder="Find jobs here" onChange={event => setSearch(event.target.value)} />
+
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell> Company name</StyledTableCell>
+              <StyledTableCell> Title </StyledTableCell>
+              <StyledTableCell> Link </StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {job
+              .map((job) => {
+                return (
+                  <StyledTableRow>
+                    <StyledTableCell component="th" scope="row">
+                      {job.company}
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      {job.title}
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <a href={job.link}>Click here to apply</a>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
-}
+};
 
 export default App;
