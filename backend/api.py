@@ -12,8 +12,8 @@ def test():
 def get_current_time():
     return {'time': time.time()}
 
-@app.route('/internsg')
+@app.route('/internsg/keyword')
 def get_data_internsg():
-    return m1()
+    return m1("keyword")
 
 print("hi")

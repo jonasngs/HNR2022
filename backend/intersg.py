@@ -2,8 +2,8 @@ import requests
 from bs4 import BeautifulSoup as BS
 import json
 
-def main():
-    url = "https://www.internsg.com/"
+def main(keyword):
+    url = f"https://www.internsg.com/jobs/1/?f_p&f_i&filter_s{keyword}#isg-top"
 
     request = requests.get(url)
     page = BS(request.text, "html.parser")
