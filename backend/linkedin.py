@@ -13,8 +13,9 @@ def search(keyword):
         page = '&location=Singapore&start=' + str(i * 25)
 
         # for sg only
-        # source = requests.get('https://www.linkedin.com/jobs/search/?geoId=102454443&keywords=' + kw + page).text
-        source = requests.get('https://www.linkedin.com/jobs/search/?keywords=' + kw + '&location=Singapore' + page).text
+        source = requests.get('https://www.linkedin.com/jobs/search/?geoId=102454443&keywords=' + kw + page).text
+        print(source)
+        # source = requests.get('https://www.linkedin.com/jobs/search/?keywords=' + kw + '&location=Singapore' + page).text
         # print('https://www.linkedin.com/jobs/search/?geoId=102454443&keywords=' + kw + page)
         soup = BeautifulSoup(source, 'lxml')
         jobs = soup.findAll('div', class_='base-card base-card--link base-search-card base-search-card--link job-search-card')
@@ -39,5 +40,5 @@ def search(keyword):
     # print(result)
     return json.dumps(result)
 
-search('software engineer intern')
+# search('software engineer intern')
 
