@@ -1,7 +1,7 @@
 
 import "./App.css";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -55,15 +55,22 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("hello")
+
+
+  const handleSubmit = (event) => {
     getJobData(search);
-  }, [search, setSearch]);
+    event.preventDefault();
+  }
 
   return (
     <div className="App">
       <h1>Find your ideal jobs here !</h1>
-      <input placeholder="Find jobs here" onChange={event => setSearch(event.target.value)} />
+      <form onSubmit={handleSubmit}>
+        <label>
+          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+        </label>
+        <input type="submit" />
+      </form>
 
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
