@@ -3,9 +3,12 @@ from flask import Flask, request, json
 from internsg import main as m1
 from linkedin import search as m2
 from glints import search as m3
+from flask_cors import CORS, cross_origin
+
 
 app = Flask(__name__)
-
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/')
 def test():
     return {'name': "server is up and running"}
